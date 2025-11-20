@@ -1,0 +1,21 @@
+name: 自动部署到服务器（FTP）
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 拉取仓库代码
+        uses: actions/checkout@v4
+
+      - name: FTP部署到宝塔服务器
+        uses: SamKirkland/FTP-Deploy-Action@4.3.5
+        with:
+          server: "114.215.181.118"
+          username: "musicalbum" # 宝塔创建的FTP用户名（不是root）
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: "21" # FTP默认端口21
+          local-dir: "./"
+          server-dir: "/www/wwwroot/musicalbum.chenpan.icu/"
