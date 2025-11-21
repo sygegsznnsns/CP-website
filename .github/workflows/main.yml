@@ -17,8 +17,9 @@ jobs:
           server: "114.215.181.118"
           username: "musicalbum"
           password: ${{ secrets.FTP_PASSWORD }}
-          port: "21"
+          port: "2121"
           protocol: ftp
           local-dir: "./"
           server-dir: "/www/wwwroot/musicalbum.chenpan.icu/"
+          timeout: 60000
           log-level: verbose
