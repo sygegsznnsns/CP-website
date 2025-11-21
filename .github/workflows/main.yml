@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: FTP部署到宝塔服务器
-        uses: SamKirkland/FTP-Deploy-Action@v4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: "114.215.181.118"
           username: "musicalbum"
