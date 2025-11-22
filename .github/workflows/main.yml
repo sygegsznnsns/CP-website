@@ -11,7 +11,7 @@ jobs:
       - name: 拉取仓库代码
         uses: actions/checkout@v4
 
-      - name: FTP部署到宝塔服务器
+      - name: 部署子主题到服务器
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: "114.215.181.118"
@@ -19,7 +19,20 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: "2121"
           protocol: ftp
-          local-dir: "./"
-          server-dir: "/www/wwwroot/musicalbum.chenpan.icu/"
+          local-dir: "src/wp-content/themes/musicalbum-child/"
+          server-dir: "wp-content/themes/musicalbum-child/"
+          timeout: 60000
+          log-level: verbose
+
+      - name: 部署插件到服务器
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: "114.215.181.118"
+          username: "musicalbum"
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: "2121"
+          protocol: ftp
+          local-dir: "src/wp-content/plugins/musicalbum-integrations/"
+          server-dir: "wp-content/plugins/musicalbum-integrations/"
           timeout: 60000
           log-level: verbose
