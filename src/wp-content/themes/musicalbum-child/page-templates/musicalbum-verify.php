@@ -17,7 +17,7 @@ get_header();
     <hr />
     <h2>短码输出（来自插件 musicalbum-integrations）：</h2>
     <div class="musicalbum-shortcode">
-      <?php echo do_shortcode('[musicalbum_hello]'); ?>
+      <?php echo shortcode_exists('musicalbum_hello') ? do_shortcode('[musicalbum_hello]') : esc_html__('短码未注册或插件未启用', 'musicalbum-child'); ?>
     </div>
 
     <hr />

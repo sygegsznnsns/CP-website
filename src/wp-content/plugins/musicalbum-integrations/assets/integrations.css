@@ -3,3 +3,7 @@
   background: #f3f4f6;
   border: 1px solid #e5e7eb;
 }
+
+.musicalbum-viewing-form { max-width: 720px; margin: 0 auto; }
+.musicalbum-ocr { display:flex; gap:8px; align-items:center; margin-bottom:12px; }
+.musicalbum-viewings-list .item { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee; }
